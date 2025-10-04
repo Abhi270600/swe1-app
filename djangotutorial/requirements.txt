@@ -1,0 +1,11 @@
+Django==5.2
+gunicorn
+sqlparse==0.5.3
+asgiref==3.9.2
+pytz
+tzdata
+requests
+psycopg2-binary
+whitenoise
+python-dotenv
+dj-database-url

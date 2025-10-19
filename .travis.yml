@@ -23,7 +23,7 @@ deploy:
   region: "us-east-1"               # e.g. us-east-1
   app: "polls-app"         # your EB Application name
   env: "polls"         # your EB environment name
-  bucket_name: "polls_bucket"      # S3 bucket for EB (can be existing or created)
+  bucket_name: "polls-bucket-swe1"      # S3 bucket for EB (can be existing or created)
   on:
     branch: main                       # change to master if your default branch is master
   access_key_id: "$AWS_ACCESS_KEY_ID"

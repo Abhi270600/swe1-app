@@ -1,0 +1,33 @@
+language: python
+python:
+  - "3.10"
+
+dist: focal
+cache: pip
+
+install:
+  - pip install -r requirements.txt
+
+before_script:
+  - python manage.py migrate --noinput
+  - python manage.py collectstatic --noinput
+
+script:
+  - black --check .
+  - flake8 .
+  - coverage run --source='.' manage.py test
+
+after_success:
+  - coveralls
+
+deploy:
+  provider: elasticbeanstalk
+  edge: true
+  region: "us-east-1"               # e.g. us-east-1
+  app: "polls-app"         # your EB Application name
+  env: "polls"         # your EB environment name
+  bucket_name: "polls_bucket"      # S3 bucket for EB (can be existing or created)
+  on:
+    branch: main                       # change to master if your default branch is master
+  access_key_id: "$AWS_ACCESS_KEY_ID"
+  secret_access_key: "$AWS_SECRET_ACCESS_KEY"

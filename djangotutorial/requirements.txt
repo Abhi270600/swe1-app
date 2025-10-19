@@ -9,3 +9,7 @@ psycopg2-binary
 whitenoise
 python-dotenv
 dj-database-url
+black
+flake8
+coverage
+coveralls

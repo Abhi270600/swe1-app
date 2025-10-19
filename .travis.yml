@@ -1,9 +1,6 @@
 language: python
 python:
-  - "3.10"
-
-dist: focal
-cache: pip
+  - "3.12"
 
 install:
   - pip install -r requirements.txt

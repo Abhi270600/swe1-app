@@ -15,8 +15,7 @@ script:
   - coverage run --source='.' manage.py test tests
 
 after_success:
-  - coverage report
-  - coveralls --verbose
+  - coveralls
 
 deploy:
   provider: elasticbeanstalk

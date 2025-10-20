@@ -12,10 +12,10 @@ before_script:
 script:
   - black --check .
   - flake8 .
-  - coverage run --source='.' manage.py test tests
+  - coverage run manage.py test
 
 after_success:
-  - COVERALLS_BRANCH=main coveralls
+  - coveralls
 
 deploy:
   provider: elasticbeanstalk
